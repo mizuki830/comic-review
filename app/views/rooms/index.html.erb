@@ -1,0 +1,117 @@
+<%= render "shared/header" %>
+<div class = "main">
+
+  <%# 画面上部機能説明の画像部分 %>
+  <div class = "title-contents">
+    <h2 class = "app-explain">
+      新しい漫画を見つける！！
+    </h2>
+    <h2 class = "app-explain">
+      未解決の謎の考察ができる！
+    </h2>
+    <h2 class = "app-explain">
+      好きなキャラやシーンなどの雑談もOK!
+    </h2>
+  </div>
+  <%# 画面上部機能説明の画像部分 %>
+
+  <%# 使い方の説明 %>
+  <div class='select-reason-contents'>
+    <h2 class='usage'>
+      快適に使うための４STEP
+    </h2>
+    <ul class='reason-lists'>
+      <li class='list'>
+        <h2 class = "reason-list-number">STEP1</h2>
+        <%= image_tag "comic-use.jpg", class:"list-pict" %>
+        <h3 class='reason-list-text'>
+          ユーザーの登録
+        </h3>
+        <p class='reason-list-description'>
+          レビューを見るだけなら登録不要！
+        </p>
+      </li>
+      <li class='list'>
+        <h2 class = "reason-list-number">STEP2</h2>
+        <%= image_tag "comic-use.jpg", class:"list-pict" %>
+        <h3 class='reason-list-text'>
+          レビュー部屋を作成
+        </h3>
+        <p class='reason-list-description'>
+          どんな内容にするのか自分なりにカスタマイズ可能！
+        </p>
+      </li>
+      <li class='list'>
+        <h2 class = "reason-list-number">STEP3</h2>
+        <%= image_tag "comic-use.jpg", class:"list-pict" %>
+        <h3 class='reason-list-text'>
+          レビューをする
+        </h3>
+        <p class='reason-list-description'>
+          いろんな人との交流を楽しもう！
+        </p>
+      </li>
+      <li class='list'>
+        <h2 class = "reason-list-number">STEP4</h2>
+        <%= image_tag "comic-use.jpg", class:"list-pict" %>
+        <h3 class='reason-list-text'>
+          レビューにいいね
+        </h3>
+        <p class='reason-list-description'>
+          面白い意見が聞けたらレビューにいいね！
+        </p>
+      </li>
+    </ul>
+  </div>
+  <%# 使い方の説明 %>
+
+  <%# 部屋一覧 %>
+  <div class='room-contents'>
+    <h2 class='title'>部屋一覧</h2>
+    <%# link_to '新規投稿商品', "/items/new", class: "subtitle" %>
+    <ul class='room-lists'>
+
+      <%# 商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
+      <% if @rooms != nil %>
+        <% @rooms.each do |room| %>
+          <li class='list'>
+            <%= link_to room_path(room.id) do %>
+            <div class='room-img-content'>
+              <%= image_tag room.image, class: "room-img" if room.image.attached? %>
+              <span class='room-user-id'><%= room.user_id%></span>
+            </div>
+            <div class='room-info'>
+              <h3 class='room-comic'>
+                <%= room.comic %>
+              </h3>
+              <div class='room-name'>
+                <%= room.name %>
+              </div>
+              <div class='room-agenda'>
+                <%= room.agenda %>
+              </div>
+            </div>
+            <% end %>
+          </li>
+        <% end %>
+      <% end %>
+
+      <% if @rooms == nil %>
+        <li class='list'>
+          <%= link_to '#' do %>
+          <%= image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", class: "item-img" %>
+          <div class='room-info'>
+            <h3 class='room-comic'>
+              部屋を作成しよう！
+            </h3>
+          </div>
+          <% end %>
+        </li>
+      <% end %>
+      <%# //商品がある場合は表示されないようにしましょう %>
+      <%# /商品がない場合のダミー %>
+    </ul>
+  </div>
+  <%# /商品一覧 %>
+</div>
+<%= render "shared/footer" %>
