@@ -1,0 +1,98 @@
+* {
+  box-sizing: border-box;
+}
+
+.top-page-header {
+  /*background-image: image-url('752765.jpg');*/
+  background-color: blue;
+  background-size: cover;
+  width: 100vw;
+  padding: 2vh 15vw;
+  display: flex;
+}
+
+.title-box {
+  display: flex;
+}
+
+.title {
+  margin: 5px 10vw 0 -5vw;
+  display: flex;
+  align-items: center;
+  width: 15vw;
+  text-decoration: none;
+  color: white;
+}
+
+.search-bar-contents {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-form {
+  width: 60vw;
+  height: 5vh;
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.search-form>.input-box {
+  width: 100%;
+  height: 5vh;
+  padding-left: 10px;
+}
+
+.search-button {
+  width: 5vh;
+  border: 0;
+  cursor: pointer;
+  background-color: #3ccace;
+  padding: 8px;
+}
+
+.search-icon {
+  width: 100%;
+}
+
+.nav {
+  font-size: 18px;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.lists {
+  display: flex;
+  list-style: none;
+  align-items: flex-end;
+  backdrop-filter: blur(2px);
+}
+
+
+.user-nickname {
+  text-decoration: none;
+  line-height: 32px;
+  color: white;
+  font-weight: bold;
+}
+
+
+.logout {
+  text-decoration: none;
+  margin-left: 3vw;
+  color: white;
+}
+
+.login {
+  text-decoration: none;
+  line-height: 32px;
+  color: white;
+}
+
+.sign-up {
+  text-decoration: none;
+  margin-left: 3vw;
+  color: white;
+}
