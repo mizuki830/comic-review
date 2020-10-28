@@ -1,5 +1,5 @@
 <%= render "shared/header" %>
-<div class="items-sell-contents">
+<div class="rooms-made-contents">
 
   <div class="rooms-made-main">
     <h2 class="rooms-made-title">作りたい部屋の情報を入力</h2>
@@ -39,6 +39,8 @@
         <span class="indispensable">空欄可</span>
       </div>
       <%= f.text_area :tag, class:"rooms-text", id:"room-tag", placeholder:"タグ（１５文字以内）", maxlength:"15" %>
+      <div id="search-result">
+      </div>
       <%= f.text_area :tag, class:"rooms-text", id:"room-tag", maxlength:"15" %>
       <%= f.text_area :tag, class:"rooms-text", id:"room-tag", maxlength:"15" %>
       <%= f.text_area :tag, class:"rooms-text", id:"room-tag", maxlength:"15" %>

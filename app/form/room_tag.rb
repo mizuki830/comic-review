@@ -9,7 +9,8 @@ class RoomTag
 
   def save
     room = Room.create(name: name, comic: comic, agenda: agenda, user_id: user.id)
-    tag = Tag.create(tag: tag)
+    tag = Tag.where(tag: tag).first_or_initialize
+    tag.save
 
     RoomTag.create(room_id: room.id, tag_id: tag.id)
   end
