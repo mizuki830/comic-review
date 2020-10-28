@@ -76,7 +76,6 @@ URL	https://comic-review-8429777.herokuapp.com/
 | Column | Type       | Options           |
 | ------ | ---------- | ----------------- |
 | tag    | string     |                   |
-| room   | references | foreign_key: true |
 
 ### Association
 
