@@ -3,8 +3,9 @@ class RoomTag
   include ActiveModel::Model
   attr_accessor :name, :comic, :agenda, :tag, :user_id
 
+  validates :image, presence: true
   validates :name, { maximum: 15 }
-  validates :agenda, { maximum: 50 }
+  validates :agenda, { maximum: 50 }, presence: true
   validates :tag, { maximum: 15 }
 
   def save
