@@ -5,11 +5,11 @@ class RoomsController < ApplicationController
   end
 
   def new
-    @room = RoomTag.new
+    @room = RoomTags.new
   end
 
   def create
-    @room = RoomTag.new(room_params)
+    @room = RoomTags.new(room_params)
     if @room.valid?
       @room.save
       redirect_to root_path
@@ -27,6 +27,6 @@ class RoomsController < ApplicationController
   private
 
   def room_params
-    params.require(:room_tag).permit(:image, :name, :comic, :agenda, :tag).merge(user_id: current_user.id)
+    params.permit(:image, :name, :comic, :agenda, :tag).merge(user_id: current_user.id)
   end
 end
