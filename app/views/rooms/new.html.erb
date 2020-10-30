@@ -1,0 +1,57 @@
+<%= render "shared/header" %>
+<div class="rooms-made-contents">
+
+  <div class="rooms-made-main">
+    <h2 class="rooms-made-title">作りたい部屋の情報を入力</h2>
+    <%= form_with model: @room, local: true do |f| %>
+
+    <%#= render 'shared/error_messages', model: f.object %>
+
+    <%# 部屋の画像 %>
+    <div class="img-upload">
+      <div class="weight-bold-text">
+        出品画像
+        <span class="indispensable">必須</span>
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :image, id:"comic-image" %>
+      </div>
+    </div>
+    <%# 部屋の画像 %>
+
+    <%# 部屋の情報 %>
+    <div class="new-rooms">
+      <div class="weight-bold-text">
+        作画・原作者名
+        <span class="indispensable">空欄可</span>
+      </div>
+      <%= f.text_area :name, class:"rooms-text", id:"room-name", placeholder:"作画・原作者名（２０文字以内）", maxlength:"20" %>
+      <div class="weight-bold-text">
+        作品名
+        <span class="indispensable">空欄可</span>
+      </div>
+      <%= f.text_area :comic, class:"rooms-text", id:"room-comic", placeholder:"作品名（２０文字以内）", maxlength:"20" %>
+      <div class="rooms-explain">
+        <div class="weight-bold-text">
+          部屋の議題
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :agenda, class:"rooms-text", id:"room-agenda", placeholder:"何について話したいかを入力（必須 50文字まで）例）①　今ハマっている漫画について話しましょう！　②　〇〇のシーンの考察について（ネタバレ注意）" ,rows:"7" ,maxlength:"50" %>
+      </div>
+    </div>
+    <%# 部屋の情報 %>
+
+    <%# 下部ボタン %>
+    <div class="sell-btn-contents">
+      <%= f.submit "部屋を作成する" ,class:"sell-btn" %>
+      <%=link_to 'もどる', root_path, class:"back-btn" %>
+    </div>
+    <%# /下部ボタン %>
+  </div>
+  <% end %>
+
+</div>
+<%= render "shared/footer" %>
