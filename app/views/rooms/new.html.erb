@@ -3,7 +3,7 @@
 
   <div class="rooms-made-main">
     <h2 class="rooms-made-title">作りたい部屋の情報を入力</h2>
-    <%= form_with url: rooms_path, local: true do |f| %>
+    <%= form_with model: @room, local: true do |f| %>
 
     <%#= render 'shared/error_messages', model: f.object %>
 

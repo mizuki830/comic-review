@@ -5,11 +5,12 @@ class RoomsController < ApplicationController
   end
 
   def new
-    @room = RoomTags.new
+    redirect_to user_session_path unless user_signed_in?
+    @room = Room.new
   end
 
   def create
-    @room = RoomTags.new(room_params)
+    @room = Room.new(room_params)
     if @room.valid?
       @room.save
       redirect_to root_path
@@ -18,15 +19,13 @@ class RoomsController < ApplicationController
     end
   end
 
-  def search
-    return nil if params[:input] == ""
-    tag = Tag.where(['name LIKE ?', "%#{params[:input]}%"] )
-    render json:{ keyword: tag }
+  def show
+    @room = Room.find(params[:id])
   end
 
   private
 
   def room_params
-    params.permit(:image, :name, :comic, :agenda, :tag).merge(user_id: current_user.id)
+    params.require(:room).permit(:image, :name, :comic, :agenda).merge(user_id: current_user.id)
   end
 end

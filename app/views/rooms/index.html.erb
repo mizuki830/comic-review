@@ -75,7 +75,7 @@
       <% if @rooms != nil %>
         <% @rooms.each do |room| %>
           <li class='list'>
-            <%= link_to rooms_path(room.id) do %>
+            <%= link_to room_path(room.id) do %>
             <div class='room-img-content'>
               <%= image_tag room.image, class: "room-img" if room.image.attached? %>
               <span class='room-user-id'><%= room.user_id%></span>
