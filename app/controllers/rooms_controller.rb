@@ -1,4 +1,5 @@
 class RoomsController < ApplicationController
+  before_action :choice_room, only: [:show, :edit, :update]
 
   def index
     @rooms = Room.order('created_at DESC')
@@ -20,12 +21,26 @@ class RoomsController < ApplicationController
   end
 
   def show
-    @room = Room.find(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+    if @room.update(room_params)
+      redirect_to room_path(@room)
+    else
+      render 'edit'
+    end
   end
 
   private
 
   def room_params
     params.require(:room).permit(:image, :name, :comic, :agenda).merge(user_id: current_user.id)
+  end
+
+  def choice_room
+    @room = Room.find(params[:id])
   end
 end
