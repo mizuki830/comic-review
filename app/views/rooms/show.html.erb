@@ -15,7 +15,7 @@
 
     <% if current_user.id == @room.user_id %>
       <%= link_to '部屋の編集', edit_room_path(@room.id) , method: :get, class: "room-red-btn" %>
-      <%= link_to '部屋の削除', '#', method: :delete, class:'room-destroy' %>
+      <%= link_to '部屋の削除', room_path(@room.id), method: :delete, class:'room-destroy' %>
     <% end %>
 
     <div class="room-agenda-box">

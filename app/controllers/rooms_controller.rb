@@ -1,5 +1,5 @@
 class RoomsController < ApplicationController
-  before_action :choice_room, only: [:show, :edit, :update]
+  before_action :choice_room, only: [:show, :edit, :update, :destroy]
 
   def index
     @rooms = Room.order('created_at DESC')
@@ -31,6 +31,14 @@ class RoomsController < ApplicationController
       redirect_to room_path(@room)
     else
       render 'edit'
+    end
+  end
+
+  def destroy
+    if @room.destroy
+      redirect_to root_path
+    else
+      render 'show'
     end
   end
 
