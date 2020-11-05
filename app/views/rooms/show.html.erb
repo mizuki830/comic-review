@@ -35,18 +35,20 @@
   <%# /部屋の詳細 %>
 
   <div class="comment-box">
-    <form>
-      <textarea class="comment-text"></textarea>
-      <p class="comment-warn">
-        相手のことを考え丁寧なコメントを心がけましょう。
-        <br>
-        不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      </p>
-      <button type="submit" class="comment-btn">
-        <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
-        <span>コメントする<span>
-      </button>
-    </form>
+    <div class="comment-list" id='reviews'>
+      <% @reviews.each do |review| %>
+        <div class="comment-name">
+          <%= review.user.nickname %>
+        </div>
+        <div class="comment-content">
+          <%= review.content %>
+        </div>
+      <% end %>
+    </div>
+    <%= form_with model: [@room, @review], local: true do |f| %>
+      <%= f.text_field :content %>
+      <%= f.submit 'コメントする' %>
+    <% end %>
   </div>
 </div>
 

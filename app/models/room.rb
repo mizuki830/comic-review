@@ -3,6 +3,7 @@ class Room < ApplicationRecord
   has_many :tags, through: :room_tags
   has_many :room_tags
   has_one_attached :image
+  has_many :reviews
 
   validates :image, presence: true
   validates :name, length: { maximum: 20 }
