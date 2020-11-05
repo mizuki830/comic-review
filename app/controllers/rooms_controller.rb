@@ -21,6 +21,8 @@ class RoomsController < ApplicationController
   end
 
   def show
+    @review = Review.new
+    @reviews = @room.reviews
   end
 
   def edit

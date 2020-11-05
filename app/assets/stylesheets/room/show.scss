@@ -137,9 +137,13 @@
   margin-bottom: 2vh;
 }
 
-.comment-flag {
+.comment-list {
   display: flex;
   justify-content: center;
+}
+
+.comment-name {
+  margin-right: 5px;
 }
 
 .comment-flag-icon {
