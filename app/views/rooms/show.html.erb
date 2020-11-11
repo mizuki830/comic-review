@@ -13,6 +13,23 @@
       <%= @room.name %>
     </div>
 
+    <div class="comment-box">
+      <div class="comment-list" id='reviews'>
+        <%# @tags.each do |review| %>
+          <div class="comment-name">
+            <%#= review.user.nickname %>
+          </div>
+          <div class="comment-content">
+            <%#= review.content %>
+          </div>
+        <%# end %>
+      </div>
+      <%#= form_with (model: [@room, @tag], url: room_path(@room.id) local: true) do |f| %>
+        <%#= f.text_field :tag %>
+        <%#= f.submit 'タグを追加' %>
+      <%# end %>
+    </div>
+
     <% if current_user.id == @room.user_id %>
       <%= link_to '部屋の編集', edit_room_path(@room.id) , method: :get, class: "room-red-btn" %>
       <%= link_to '部屋の削除', room_path(@room.id), method: :delete, class:'room-destroy' %>

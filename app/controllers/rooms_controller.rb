@@ -23,6 +23,13 @@ class RoomsController < ApplicationController
   def show
     @review = Review.new
     @reviews = @room.reviews
+    #@tag = RoomTags.new(tag_params)
+    #if @tag.valid?
+      #@tag.save
+      #redirect_to room_path(@room)
+    #else
+      #render 'show'
+    #end
   end
 
   def edit
@@ -52,5 +59,9 @@ class RoomsController < ApplicationController
 
   def choice_room
     @room = Room.find(params[:id])
+  end
+
+  def tag_params
+    params.permit(:tag)
   end
 end

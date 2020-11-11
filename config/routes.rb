@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'rooms#index'
   resources :rooms do
     resources :reviews
+    resources :tags
     collection do
       get 'search'
     end
